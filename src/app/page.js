@@ -10,7 +10,7 @@ export default function Home() {
   const [selectedYear, setSelectedYear] = useState("");
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  useEffect( () => {
     const fetchVehicles = async () => {
       setLoading(true);
       try {
@@ -21,13 +21,15 @@ export default function Home() {
         if (Array.isArray(data.Results)) {
           setMakes(data.Results);
           console.log(data.Results);
+          console.log('ergg')
+          setLoading(false);
         } else {
           throw new Error("Error");
         }
       } catch (err) {
         console.log("Error: ", err);
       } finally {
-        setLoading(false);
+
       }
     };
 
